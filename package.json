@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/app",
-    "dev": "nodemon src/app.ts -x ts-node"
+    "build": "tsc",
+    "dev": "concurrently \"tsc -w\" \"nodemon dist/app\"",
+    "lint": "tslint --project .",
+    "pretty-check": "prettier-check src/**/*"
   },
   "repository": {
     "type": "git",
@@ -22,9 +25,10 @@
     "@types/express-graphql": "^0.6.1",
     "@types/graphql": "^0.13.3",
     "@types/node": "^10.5.2",
+    "concurrently": "^3.6.0",
     "nodemon": "^1.18.3",
     "prettier": "^1.13.7",
-    "ts-node": "^7.0.0",
+    "prettier-check": "^2.0.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.14.0",
     "typescript": "^2.9.2"

@@ -5,3 +5,10 @@ export const UserType = `
     lastName: String!       # Last name
   }
 `;
+
+export const UserInput = `
+  input UserInput {
+    firstName: String      # First name
+    lastName: String       # Last name
+  }
+`;
