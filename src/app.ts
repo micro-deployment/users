@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as expressGraphql from 'express-graphql';
+import * as morgan from 'morgan';
 import { createConnection } from 'typeorm';
 
 import { User } from './model';
@@ -23,6 +24,10 @@ const db = () => {
 
 const server = () => {
   const app = express();
+
+  app.use(
+    morgan(':method :url :status :response-time ms - :res[content-length]'),
+  );
 
   app.use(
     '/',
